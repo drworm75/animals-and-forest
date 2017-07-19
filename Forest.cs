@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using AnimalClasses.Animals;
 
 namespace AnimalClasses
 {
@@ -30,7 +31,21 @@ namespace AnimalClasses
             foreach (var animal in Animals)
 
             {
-                Console.WriteLine($"{animal.Name} lives in the {Name} forest.  {animal.Name} has {animal.NumberOfLegs}.  Does it have fur? {animal.Fur}");
+                if (animal is IFurryAnimal)
+                {
+                    Console.WriteLine($"{animal.Name} lives in the {Name} forest in {Location}" +
+                                        $" {((IFurryAnimal)animal).TypeOfFur}!");
+                }
+                else {
+
+
+                    Console.WriteLine($"{animal.Name} lives in the {Name} forest in {Location}");
+                }
+                var walkingAnimal = animal as IWalkingAnimal;
+                if (walkingAnimal != null) 
+                {
+                    walkingAnimal.Walk(7);
+                }
             }
         }
 

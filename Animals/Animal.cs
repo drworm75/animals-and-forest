@@ -1,6 +1,6 @@
 using System;
 
-namespace AnimalClasses
+namespace AnimalClasses.Animals
 {
     public class Animal
 
